@@ -1,3 +1,3 @@
 <Solution>
-  <Project Path="MinimalProductApi/MinimalProductApi.csproj" />
+  <Project Path="Backend/MinimalProductApi/MinimalProductApi.csproj" />
 </Solution>
