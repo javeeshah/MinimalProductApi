@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { CatalogComponent } from './catalog/catalog.component';
-import { CartComponent } from './cart/cart.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { CartComponent } from './components/cart/cart.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/catalog', pathMatch: 'full' },

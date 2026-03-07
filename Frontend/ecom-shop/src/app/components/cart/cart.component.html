@@ -1,0 +1,10 @@
+<h1 class="header">
+  Shopping Cart
+</h1>
+<ul class="cart">
+    @for (product of cartItems(); track product.id) {
+    <li>
+        <bot-cart-items [product]="product" (itemRemoved)="onItemRemoved($event)"></bot-cart-items>
+    </li>
+    }
+</ul>

@@ -1,4 +1,4 @@
-@for (product of products; track product.id) {
+@for (product of products(); track product.id) {
 <ul>
     <li>
        <bot-product-details [product]="product"></bot-product-details>

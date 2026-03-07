@@ -1,7 +1,7 @@
 import { Component, signal, WritableSignal, input } from '@angular/core';
 import { NgClass, CurrencyPipe } from '@angular/common';
-import { IProduct } from '../product.model';
-import { CartService } from '../cart.service';
+import { IProduct } from '../../models/product.model';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'bot-product-details',
@@ -26,7 +26,18 @@ export class ProductDetailsComponent {
     setTimeout(() => {
         this.stock.update((p) => p - 1);
     }, 100);
-    this.cartService.addToCart(this.product());
+    const cartItem = {
+      ...this.product(),
+      price: this.product().price * (1 - this.product().discount / 100)
+    };
+    this.cartService.addToCart(cartItem).subscribe({
+      next: (data) => {
+        console.log('Product added to cart:', data);
+      },
+      error: (error) => {
+        console.error('Error adding product to cart:', error);
+      }
+    });
     console.log(event);
   }
 
